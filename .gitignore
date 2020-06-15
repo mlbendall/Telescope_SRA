@@ -1,0 +1,21 @@
+# IMPORTANT: Do not commit your dbGaP key
+*.ngc
+gdc-user-token*.txt
+
+# Python and snakemake
+*.py[cod]
+.snakemake*
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Data files
+metadata/*.tsv
+pilot_results
+pilot_results.tgz
+Rplots.pdf
+analysis/*.Rdata
+analysis/*.pdf
+*.bak

@@ -1,0 +1,95 @@
+# Path to file containing run-level metadata
+# Usually it is a table from SRA Run Selector
+sra_run_table: "SraRunTable.txt"
+
+# Column names for sample and run
+colname_SAMPLE: "BioSample"
+colname_RUN: "Run"
+
+
+# Path to key for dbGaP protected files
+# Set to null if not using protected files
+dbgap_key: "dbgap-key.ngc"
+
+
+# Location for SRA URL. 
+# Typical options are "ncbi", "s3.us-east-1", "gs.US", etc.
+sra_location: "ncbi"
+
+
+# Temporary directory
+tmpdir: "/local"
+
+##########################################################################################
+### References
+##########################################################################################
+
+downloads:
+    GRCh38.d1.vd1.fa.tar.gz:
+        url: "https://api.gdc.cancer.gov/data/254f697d-310d-4d7d-a27b-27fbf767a834"
+        md5: "3ffbcfe2d05d43206f57f81ebb251dc9"
+    gencode.v22.annotation.gtf.gz:
+        url: "https://api.gdc.cancer.gov/data/25aa497c-e615-4cb7-8751-71f744f9691f"
+        md5: "291330bdcff1094bc4d5645de35e0871"
+    HERV_rmsk.hg38.v2.gtf:
+        url: "https://github.com/mlbendall/telescope_annotation_db/raw/master/builds/HERV_rmsk.hg38.v2/transcripts.gtf"
+        md5: "b4825a8ab58687179e0432a539a30c10"
+    L1Base.hg38.v1.gtf:
+        url: "https://github.com/mlbendall/telescope_annotation_db/raw/master/builds/L1Base.hg38.v1/transcripts.gtf"
+        md5: "9c3c56d0561bd630888bba67d99b28a2"
+        
+sequences:
+    genome: "refs/sequences/genome.fa.gz"
+    genome_idx: "refs/sequences/genome.fa.gz.fai"
+    genome_dict: "refs/sequences/genome.dict"
+    transcripts: "refs/sequences/transcripts.fa"
+    transcripts_list: "refs/sequences/transcripts_list.txt"
+    transcripts_dupinfo: "refs/sequences/dupinfo.txt"
+indexes:
+    kallisto: "refs/KallistoIndex/transcripts"
+    bowtie2: "refs/Bowtie2Index/genome"
+annotations:
+    gencode: "refs/downloads/gencode.v22.annotation.gtf.gz"
+    herv: "refs/downloads/HERV_rmsk.hg38.v2.gtf"
+    l1: "refs/downloads/L1Base.hg38.v1.gtf"
+    retro: "refs/annotation/retro.gtf"
+    herv_tsv: "refs/annotation/HERV_rmsk.hg38.v2.tsv"
+    l1_tsv: "refs/annotation/L1Base.hg38.v1.tsv"
+    ttg: "refs/annotation/ttg.tsv"
+    gsym: "refs/annotation/gsym.tsv"
+
+
+## downloads:
+##     bowtie_index.tar.gz:
+##         url: "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.bowtie_index.tar.gz"
+##         md5: "3f493e82d549f1d476491930965c10d0"
+##     bwa_index.tar.gz:
+##         url: "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.bwa_index.tar.gz"
+##         md5: "a4f359513f544d8713a74537da7c3322"
+##     genome.fna.fai:
+##         url: "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.fai"
+##         md5: "5fddbc109c82980f9436aa5c21a57c61"
+##     genome.fna.gz:
+##         url: "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.gz"
+##         md5: "a08035b6a6e31780e96a34008ff21bd6"
+##     hisat2_index.tar.gz:
+##         url: "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.hisat2_index.tar.gz"
+##         md5: "de3609995cd7498322bf2f7b9c57d302"
+## 
+## 
+## downloads:
+##     bowtie_index.tar.gz:
+##         url: "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.bowtie_index.tar.gz"
+##         md5: "c7cf29ba93c5f51ddb7d335218e94f9a"
+##     bwa_index.tar.gz:
+##         url: "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.bwa_index.tar.gz"
+##         md5: "98cb7f4d1a4ee4e4a42df3092660d3e2"
+##     genome.fna.fai:
+##         url: "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.fai"
+##         md5: "1bcf198e7562ed5f25a6a92014a7715a"
+##     genome.fna.gz:
+##         url: "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.gz"
+##         md5: "a056c57649f3c9964c68aead3849bbf8"
+##     hisat2_index.tar.gz:
+##         url: "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.hisat2_index.tar.gz"
+##         md5: "a008539d5c1a9d16a269dfdf7e47d01a"
